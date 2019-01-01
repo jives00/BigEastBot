@@ -54,7 +54,7 @@ def run_bot(r, gameIDsRecorded):
     # Rest of the sidebar text
     msg += getStaticText()          # get the rest of the sidebar (just text)
 
-    # Print in terminal, just because
+    # Print in terminal, uncomment for testing
     # print ("*** RUN AT " + datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + " ***")
     # print (msg)
 
@@ -110,12 +110,18 @@ def getGames(d, date, gameIDsRecorded):
         # get start time, with lowercase AM/PM or current score/time if in progress
         startTime      =   API['events'][i]['competitions'][0]['status']['type']['shortDetail']
         startTime      =   startTime.split()
-        try:               startTime = startTime[2] + startTime[3].lower()
-        except:            startTime = str(awayScore) + '-' + str(homeScore) + ' | ' + str(API['events'][i]['competitions'][0]['status']['type']['detail'])
+        if (startTime[0] == "TBD"):
+            startTime = "TBD"
+        else:
+            try:
+                startTime = startTime[2] + startTime[3].lower()
+            except:
+                startTime = str(awayScore) + '-' + str(homeScore) + ' | ' + \
+                str(API['events'][i]['competitions'][0]['status']['type']['detail'])
 
         # get TV station, if it exists
         try:         station = ' on ' + API['events'][i]['competitions'][0]['broadcasts'][0]['names'][0]
-        except:      station = ""
+        except:      pass
 
         # Determine print message; if game is finished, update the standings
         if (status == 'STATUS_FINAL' and (awayScore > homeScore)):
@@ -312,7 +318,6 @@ def getStaticText():
 # ----------------------
 # Main Method
 # ----------------------
-#os.system('cls')
 r                   = bot_login()                           # login to reddit and return an instance of that login
 gameIDsRecorded     = getGameIDs()                          # read the file with what gameIds are already recorded
 duration            = 900                                   # number of seconds between calls to the API and sidebar updates
@@ -325,18 +330,14 @@ while(True):
 
     # if betwen May and September, run only once a month
     if (month >= 5 and month <= 9):
+        print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + ' - Sleeping for another month')
         time.sleep(2500000)
+
+    # if 1am, sleep for about 9 hours
+    elif (hour == 1):
+        print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + ' - Sleeping for the night')
+        time.sleep(32000)
 
     # otherwise run every 15 minutes
     else:
         time.sleep(900)
-
-
-
-    # ##########################################
-    # TODO: Set a timer while(true) is running
-    # Weekday - only between 5pm and midnight - 15m
-    # Weekend - 10am to midnight - 15m
-    # March/April - Thurs/Fri 10am to midnight - 15m
-    # October 1 - reset records to 0-0
-    # ##########################################

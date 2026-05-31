@@ -4,4 +4,4 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY bigeastBot.py .
 ENV DATA_DIR=/app/data
-CMD ["python", "bigeastBot.py"]
+CMD ["python", "-u", "bigeastBot.py"]

@@ -1,0 +1,7 @@
+config.py
+config.pyc
+__pycache__/
+*.pyc
+*.csv
+gameIDs.txt
+.env

@@ -1,0 +1,8 @@
+services:
+  bigeastbot:
+    image: ghcr.io/jives00/bigeastbot:latest
+    container_name: bigeastbot
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - /volume2/docker/bigeastbot/data:/app/data

@@ -1,10 +1,42 @@
 # BigEastBot
-Reddit bot to update scores/schedules/standings on /r/bigeast
 
-config.py is not included, this file contains the login information, API key, etc. for reddit.
+Reddit bot that updates scores, schedules, and standings on /r/bigeast via the ESPN API.
 
-These files *should* be created by the code automatically, but you may need to make empty ones if it doesn't work:
+## Deployment
 
-1) gameIDs.txt - a txt file that simply holds the game IDs so they don't get added to the standings again
-2) standings.csv - a csv file with columns for: Team, URL (a wiki link), overall wins, overall losses, conference wins, conference losses.  The order in this file must be alphabetical and match the array in the main python file.
-3) standingsSorted.csv - the same as the standings.csv file, but sorted by record.  This is the file used to generate the sidebar text.
+Runs as a Docker container on a Synology NAS. CI builds the image and pushes to `ghcr.io` on every push to `main`. Watchtower auto-deploys within 5 minutes.
+
+## Configuration
+
+Credentials are passed via environment variables (never committed). Create a `.env` file:
+
+```
+REDDIT_USERNAME=bigeastmod
+REDDIT_PASSWORD=...
+REDDIT_CLIENT_ID=...
+REDDIT_CLIENT_SECRET=...
+```
+
+## Data files
+
+The bot reads and writes three files that persist across container restarts via a bind mount at `/app/data`:
+
+- `standings.csv` — team records (Team, URL, OverallWins, OverallLosses, ConfWins, ConfLosses). Must be in alphabetical order matching the `BETeams` array in the bot.
+- `standingsSorted.csv` — auto-generated sorted version, used to build the sidebar.
+- `gameIDs.txt` — tracks processed game IDs to avoid double-counting results.
+
+Copy current CSV files from EC2 to `/volume2/docker/bigeastbot/data/` on the NAS before first run.
+
+## Running locally
+
+```bash
+pip install -r requirements.txt
+export REDDIT_USERNAME=... REDDIT_PASSWORD=... REDDIT_CLIENT_ID=... REDDIT_CLIENT_SECRET=...
+python bigeastBot.py
+```
+
+## Tests
+
+```bash
+pytest
+```

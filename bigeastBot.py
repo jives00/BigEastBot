@@ -6,11 +6,19 @@
 
 import praw
 import os
+import logging
 import datetime
 import time
 import requests
 import csv
 from titlecase import titlecase
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[logging.StreamHandler()]
+)
+logger = logging.getLogger('BigEastBot')
 
 DATA_DIR = os.environ.get('DATA_DIR', os.path.dirname(os.path.abspath(__file__)))
 
@@ -55,10 +63,10 @@ def run_bot(r, gameIDsRecorded):
     sidebar_current = settings['description']
 
     if (msg == sidebar_current):
-        print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + ' - No changes to sidebar')
+        logger.info("No changes to sidebar")
     else:
         r.subreddit('bigeast').wiki['config/sidebar'].edit(msg)
-        print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + ' - Sidebar updated')
+        logger.info("Sidebar updated")
 
 
 def getGames(d, date, gameIDsRecorded):
@@ -67,7 +75,13 @@ def getGames(d, date, gameIDsRecorded):
     URL = "http://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/"
     URL += "scoreboard?lang=en&region=us&calendartype=blacklist&limit=300&dates="
     URL += date + "&groups=4"
-    API = requests.get(URL).json()
+    try:
+        response = requests.get(URL, timeout=15)
+        response.raise_for_status()
+        API = response.json()
+    except Exception as e:
+        logger.error(f"ESPN API request failed for date={date}: {e}")
+        return ""
 
     datePrint = d.strftime("%A") + ", " + d.strftime("%B") + " " + str(d.day)
 
@@ -79,8 +93,8 @@ def getGames(d, date, gameIDsRecorded):
     try:
         if (API['events'][0]):
             msg += '\n**' + datePrint + suffix + '**\n\n'
-    except:
-        pass
+    except (IndexError, KeyError):
+        return ""
 
     for game in API['events']:
         status = API['events'][i]['status']['type']['name']
@@ -92,11 +106,11 @@ def getGames(d, date, gameIDsRecorded):
         gameID = API['events'][i]['id']
         try:
             homeRank = API['events'][i]['competitions'][0]['competitors'][0]['curatedRank']['current']
-        except:
+        except (KeyError, IndexError):
             homeRank = 99
         try:
             awayRank = API['events'][i]['competitions'][0]['competitors'][1]['curatedRank']['current']
-        except:
+        except (KeyError, IndexError):
             awayRank = 99
         if(homeRank) > 25:
             homeRank = ''
@@ -118,7 +132,7 @@ def getGames(d, date, gameIDsRecorded):
         else:
             try:
                 startTime = startTime[2] + startTime[3].lower()
-            except:
+            except (IndexError, KeyError):
                 startTime = str(awayScore) + '-' + str(homeScore) + ' | ' + \
                     str(API['events'][i]['competitions'][0]['status']['type']['detail'])
 
@@ -134,12 +148,12 @@ def getGames(d, date, gameIDsRecorded):
                 tournament = "Big East Tournament - "
             else:
                 tournament = ""
-        except:
+        except (IndexError, KeyError):
             tournament = ""
 
         try:
             station = ' on ' + API['events'][i]['competitions'][0]['broadcasts'][0]['names'][0]
-        except:
+        except (IndexError, KeyError):
             station = ''
 
         if (status == 'STATUS_FINAL' and (awayScore > homeScore)):
@@ -315,20 +329,25 @@ def getStaticText():
 
 
 if __name__ == '__main__':
+    logger.info("BigEastBot starting")
     r = bot_login()
     gameIDsRecorded = getGameIDs()
 
     while True:
-        run_bot(r, gameIDsRecorded)
+        logger.info("Main loop tick")
+        try:
+            run_bot(r, gameIDsRecorded)
+        except Exception:
+            logger.error("run_bot failed:", exc_info=True)
 
         month = datetime.datetime.now().month
         hour = datetime.datetime.now().hour
 
         if (month >= 5 and month <= 9):
-            print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + ' - Sleeping for another month')
+            logger.info("Sleeping for another month (off-season)")
             time.sleep(2500000)
         elif (hour == 1):
-            print(datetime.datetime.now().strftime("%Y-%m-%d %H:%M") + ' - Sleeping for the night')
+            logger.info("Sleeping for the night")
             time.sleep(32000)
         else:
             time.sleep(150)

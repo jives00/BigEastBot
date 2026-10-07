@@ -1,0 +1,54 @@
+{
+  "events": [
+    {
+      "id": "401851317",
+      "date": "2026-03-14T22:30Z",
+      "competitions": [
+        {
+          "status": {
+            "type": {
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "detail": "Final",
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "score": "72",
+              "team": {
+                "id": "2599",
+                "shortDisplayName": "St John's"
+              },
+              "curatedRank": {
+                "current": 13
+              }
+            },
+            {
+              "homeAway": "away",
+              "score": "52",
+              "team": {
+                "id": "41",
+                "shortDisplayName": "UConn"
+              },
+              "curatedRank": {
+                "current": 6
+              }
+            }
+          ],
+          "notes": [
+            {
+              "headline": "Big East Tournament - Final"
+            }
+          ],
+          "broadcasts": [
+            {
+              "names": ["Fox"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

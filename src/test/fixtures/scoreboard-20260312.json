@@ -1,0 +1,204 @@
+{
+  "events": [
+    {
+      "id": "401851313",
+      "date": "2026-03-12T23:00Z",
+      "competitions": [
+        {
+          "status": {
+            "type": {
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "detail": "Final",
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "score": "93",
+              "team": {
+                "id": "41",
+                "shortDisplayName": "UConn"
+              },
+              "curatedRank": {
+                "current": 6
+              }
+            },
+            {
+              "homeAway": "away",
+              "score": "68",
+              "team": {
+                "id": "2752",
+                "shortDisplayName": "Xavier"
+              },
+              "curatedRank": {
+                "current": 99
+              }
+            }
+          ],
+          "notes": [
+            {
+              "headline": "Big East Tournament - Quarterfinal"
+            }
+          ],
+          "broadcasts": [
+            {
+              "names": ["FS1"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "401851311",
+      "date": "2026-03-12T16:00Z",
+      "competitions": [
+        {
+          "status": {
+            "type": {
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "detail": "Final",
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "score": "85",
+              "team": {
+                "id": "2599",
+                "shortDisplayName": "St John's"
+              },
+              "curatedRank": {
+                "current": 13
+              }
+            },
+            {
+              "homeAway": "away",
+              "score": "72",
+              "team": {
+                "id": "2507",
+                "shortDisplayName": "Providence"
+              },
+              "curatedRank": {
+                "current": 99
+              }
+            }
+          ],
+          "notes": [
+            {
+              "headline": "Big East Tournament - Quarterfinal"
+            }
+          ],
+          "broadcasts": [
+            {
+              "names": ["Peacock"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "401851312",
+      "date": "2026-03-12T18:30Z",
+      "competitions": [
+        {
+          "status": {
+            "type": {
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "detail": "Final",
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "score": "72",
+              "team": {
+                "id": "2550",
+                "shortDisplayName": "Seton Hall"
+              },
+              "curatedRank": {
+                "current": 99
+              }
+            },
+            {
+              "homeAway": "away",
+              "score": "61",
+              "team": {
+                "id": "156",
+                "shortDisplayName": "Creighton"
+              },
+              "curatedRank": {
+                "current": 99
+              }
+            }
+          ],
+          "notes": [
+            {
+              "headline": "Big East Tournament - Quarterfinal"
+            }
+          ],
+          "broadcasts": [
+            {
+              "names": ["Peacock"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "401851314",
+      "date": "2026-03-13T01:30Z",
+      "competitions": [
+        {
+          "status": {
+            "type": {
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "detail": "Final",
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "score": "64",
+              "team": {
+                "id": "222",
+                "shortDisplayName": "Villanova"
+              },
+              "curatedRank": {
+                "current": 99
+              }
+            },
+            {
+              "homeAway": "away",
+              "score": "78",
+              "team": {
+                "id": "46",
+                "shortDisplayName": "Georgetown"
+              },
+              "curatedRank": {
+                "current": 99
+              }
+            }
+          ],
+          "notes": [
+            {
+              "headline": "Big East Tournament - Quarterfinal"
+            }
+          ],
+          "broadcasts": [
+            {
+              "names": ["FS1"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

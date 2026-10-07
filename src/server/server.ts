@@ -1,8 +1,7 @@
 import {once} from 'node:events'
 import type {IncomingMessage, ServerResponse} from 'node:http'
-import {redis} from '@devvit/web/server'
 import type {PartialJsonValue, UiResponse} from '@devvit/web/shared'
-import {runSpike} from './spike.ts'
+import {type UpdateSummary, update} from './update.ts'
 
 type ErrorRsp = {error: string; status: number}
 
@@ -30,36 +29,39 @@ async function route(
   await drain(reqMsg)
 
   switch (reqMsg.url) {
-    case '/internal/menu/spike':
-      writeJson<UiResponse>(200, await routeSpike(), rspMsg)
-      return
-    case '/internal/cron/heartbeat':
-      await routeHeartbeat()
+    case '/internal/cron/update-sidebar':
+      log(await update())
       writeJson(200, {}, rspMsg)
+      return
+    case '/internal/menu/update-now':
+      writeJson<UiResponse>(200, await routeUpdateNow(), rspMsg)
       return
     default:
       writeJson<ErrorRsp>(404, {error: 'not found', status: 404}, rspMsg)
   }
 }
 
-async function routeSpike(): Promise<UiResponse> {
-  const results = await runSpike()
-  for (const r of results)
-    console.log(`[spike] ${r.ok ? 'PASS' : 'FAIL'} ${r.step}: ${r.detail}`)
-  const failed = results.filter(r => !r.ok).map(r => r.step)
-  return {
-    showToast: {
-      text: failed.length
-        ? `Spike: FAILED ${failed.join(', ')} (see playtest logs)`
-        : `Spike: all ${results.length} checks passed`,
-      appearance: failed.length ? 'neutral' : 'success',
-    },
+async function routeUpdateNow(): Promise<UiResponse> {
+  try {
+    const summary = await update({refreshOpener: true})
+    log(summary)
+    return {showToast: {text: toastText(summary), appearance: 'success'}}
+  } catch (err) {
+    console.error(`[update] failed: ${err instanceof Error ? err.stack : err}`)
+    return {
+      showToast: `Update failed: ${err instanceof Error ? err.message : err}`,
+    }
   }
 }
 
-async function routeHeartbeat(): Promise<void> {
-  const n = await redis.incrBy('spike:heartbeats', 1)
-  console.log(`[heartbeat] #${n} at ${new Date().toISOString()}`)
+export function toastText(s: UpdateSummary): string {
+  const head = `${s.mode}, opener ${s.opener ?? 'unknown'}`
+  if (s.frozenReason) return `${head}: no changes (${s.frozenReason})`
+  return `${head}. Sidebar ${s.sidebar}, games widget ${s.gamesWidget}, standings widget ${s.standingsWidget}`
+}
+
+function log(s: UpdateSummary): void {
+  console.log(`[update] ${JSON.stringify(s)}`)
 }
 
 async function drain(reqMsg: IncomingMessage): Promise<void> {

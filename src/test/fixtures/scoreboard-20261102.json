@@ -1,0 +1,428 @@
+{
+  "events": [
+    {
+      "id": "401921264",
+      "date": "2026-11-02T23:30Z",
+      "competitions": [
+        {
+          "status": {
+            "type": {
+              "name": "STATUS_SCHEDULED",
+              "state": "pre",
+              "detail": "Mon, November 2nd at 6:30 PM EST",
+              "shortDetail": "11/2 - 6:30 PM EST"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "score": "0",
+              "team": {
+                "id": "46",
+                "shortDisplayName": "Georgetown"
+              },
+              "curatedRank": {
+                "current": 99
+              }
+            },
+            {
+              "homeAway": "away",
+              "score": "0",
+              "team": {
+                "id": "2352",
+                "shortDisplayName": "Loyola MD"
+              },
+              "curatedRank": {
+                "current": 99
+              }
+            }
+          ],
+          "notes": [],
+          "broadcasts": []
+        }
+      ]
+    },
+    {
+      "id": "401920679",
+      "date": "2026-11-02T23:30Z",
+      "competitions": [
+        {
+          "status": {
+            "type": {
+              "name": "STATUS_SCHEDULED",
+              "state": "pre",
+              "detail": "Mon, November 2nd at 6:30 PM EST",
+              "shortDetail": "11/2 - 6:30 PM EST"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "score": "0",
+              "team": {
+                "id": "2599",
+                "shortDisplayName": "St John's"
+              },
+              "curatedRank": {
+                "current": 99
+              }
+            },
+            {
+              "homeAway": "away",
+              "score": "0",
+              "team": {
+                "id": "2405",
+                "shortDisplayName": "Monmouth"
+              },
+              "curatedRank": {
+                "current": 99
+              }
+            }
+          ],
+          "notes": [],
+          "broadcasts": []
+        }
+      ]
+    },
+    {
+      "id": "401909541",
+      "date": "2026-11-03T00:00Z",
+      "competitions": [
+        {
+          "status": {
+            "type": {
+              "name": "STATUS_SCHEDULED",
+              "state": "pre",
+              "detail": "Mon, November 2nd at 7:00 PM EST",
+              "shortDetail": "11/2 - 7:00 PM EST"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "score": "0",
+              "team": {
+                "id": "2752",
+                "shortDisplayName": "Xavier"
+              },
+              "curatedRank": {
+                "current": 99
+              }
+            },
+            {
+              "homeAway": "away",
+              "score": "0",
+              "team": {
+                "id": "116",
+                "shortDisplayName": "Mount St Marys"
+              },
+              "curatedRank": {
+                "current": 99
+              }
+            }
+          ],
+          "notes": [],
+          "broadcasts": []
+        }
+      ]
+    },
+    {
+      "id": "401909531",
+      "date": "2026-11-03T00:00Z",
+      "competitions": [
+        {
+          "status": {
+            "type": {
+              "name": "STATUS_SCHEDULED",
+              "state": "pre",
+              "detail": "Mon, November 2nd at 7:00 PM EST",
+              "shortDetail": "11/2 - 7:00 PM EST"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "score": "0",
+              "team": {
+                "id": "2507",
+                "shortDisplayName": "Providence"
+              },
+              "curatedRank": {
+                "current": 99
+              }
+            },
+            {
+              "homeAway": "away",
+              "score": "0",
+              "team": {
+                "id": "311",
+                "shortDisplayName": "Maine"
+              },
+              "curatedRank": {
+                "current": 99
+              }
+            }
+          ],
+          "notes": [],
+          "broadcasts": []
+        }
+      ]
+    },
+    {
+      "id": "401902275",
+      "date": "2026-11-03T00:00Z",
+      "competitions": [
+        {
+          "status": {
+            "type": {
+              "name": "STATUS_SCHEDULED",
+              "state": "pre",
+              "detail": "Mon, November 2nd at 7:00 PM EST",
+              "shortDetail": "11/2 - 7:00 PM EST"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "score": "0",
+              "team": {
+                "id": "2086",
+                "shortDisplayName": "Butler"
+              },
+              "curatedRank": {
+                "current": 99
+              }
+            },
+            {
+              "homeAway": "away",
+              "score": "0",
+              "team": {
+                "id": "322",
+                "shortDisplayName": "Lafayette"
+              },
+              "curatedRank": {
+                "current": 99
+              }
+            }
+          ],
+          "notes": [],
+          "broadcasts": []
+        }
+      ]
+    },
+    {
+      "id": "401920886",
+      "date": "2026-11-03T00:30Z",
+      "competitions": [
+        {
+          "status": {
+            "type": {
+              "name": "STATUS_SCHEDULED",
+              "state": "pre",
+              "detail": "Mon, November 2nd at 7:30 PM EST",
+              "shortDetail": "11/2 - 7:30 PM EST"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "score": "0",
+              "team": {
+                "id": "2550",
+                "shortDisplayName": "Seton Hall"
+              },
+              "curatedRank": {
+                "current": 99
+              }
+            },
+            {
+              "homeAway": "away",
+              "score": "0",
+              "team": {
+                "id": "2612",
+                "shortDisplayName": "Saint Peter's"
+              },
+              "curatedRank": {
+                "current": 99
+              }
+            }
+          ],
+          "notes": [],
+          "broadcasts": []
+        }
+      ]
+    },
+    {
+      "id": "401909522",
+      "date": "2026-11-03T00:30Z",
+      "competitions": [
+        {
+          "status": {
+            "type": {
+              "name": "STATUS_SCHEDULED",
+              "state": "pre",
+              "detail": "Mon, November 2nd at 7:30 PM EST",
+              "shortDetail": "11/2 - 7:30 PM EST"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "score": "0",
+              "team": {
+                "id": "269",
+                "shortDisplayName": "Marquette"
+              },
+              "curatedRank": {
+                "current": 99
+              }
+            },
+            {
+              "homeAway": "away",
+              "score": "0",
+              "team": {
+                "id": "2385",
+                "shortDisplayName": "Mercyhurst"
+              },
+              "curatedRank": {
+                "current": 99
+              }
+            }
+          ],
+          "notes": [],
+          "broadcasts": []
+        }
+      ]
+    },
+    {
+      "id": "401909500",
+      "date": "2026-11-03T01:00Z",
+      "competitions": [
+        {
+          "status": {
+            "type": {
+              "name": "STATUS_SCHEDULED",
+              "state": "pre",
+              "detail": "Mon, November 2nd at 8:00 PM EST",
+              "shortDetail": "11/2 - 8:00 PM EST"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "score": "0",
+              "team": {
+                "id": "305",
+                "shortDisplayName": "DePaul"
+              },
+              "curatedRank": {
+                "current": 99
+              }
+            },
+            {
+              "homeAway": "away",
+              "score": "0",
+              "team": {
+                "id": "2698",
+                "shortDisplayName": "West Georgia"
+              },
+              "curatedRank": {
+                "current": 99
+              }
+            }
+          ],
+          "notes": [],
+          "broadcasts": []
+        }
+      ]
+    },
+    {
+      "id": "401909490",
+      "date": "2026-11-03T01:00Z",
+      "competitions": [
+        {
+          "status": {
+            "type": {
+              "name": "STATUS_SCHEDULED",
+              "state": "pre",
+              "detail": "Mon, November 2nd at 8:00 PM EST",
+              "shortDetail": "11/2 - 8:00 PM EST"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "score": "0",
+              "team": {
+                "id": "156",
+                "shortDisplayName": "Creighton"
+              },
+              "curatedRank": {
+                "current": 99
+              }
+            },
+            {
+              "homeAway": "away",
+              "score": "0",
+              "team": {
+                "id": "140",
+                "shortDisplayName": "Kansas City"
+              },
+              "curatedRank": {
+                "current": 99
+              }
+            }
+          ],
+          "notes": [],
+          "broadcasts": []
+        }
+      ]
+    },
+    {
+      "id": "401911390",
+      "date": "2026-11-03T02:00Z",
+      "competitions": [
+        {
+          "status": {
+            "type": {
+              "name": "STATUS_SCHEDULED",
+              "state": "pre",
+              "detail": "Mon, November 2nd at 9:00 PM EST",
+              "shortDetail": "11/2 - 9:00 PM EST"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "score": "0",
+              "team": {
+                "id": "41",
+                "shortDisplayName": "UConn"
+              },
+              "curatedRank": {
+                "current": 99
+              }
+            },
+            {
+              "homeAway": "away",
+              "score": "0",
+              "team": {
+                "id": "2241",
+                "shortDisplayName": "Gardner-Webb"
+              },
+              "curatedRank": {
+                "current": 99
+              }
+            }
+          ],
+          "notes": [],
+          "broadcasts": [
+            {
+              "names": ["Peacock"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

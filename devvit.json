@@ -7,26 +7,24 @@
     "redis": true,
     "http": {
       "enable": true,
-      "domains": [
-        "site.api.espn.com"
-      ]
+      "domains": ["site.api.espn.com"]
     }
   },
   "menu": {
     "items": [
       {
-        "label": "[BigEastBot] Run spike checks",
-        "description": "Test ESPN fetch, config/sidebar write and a sidebar widget.",
+        "label": "[BigEastBot] Update sidebar now",
+        "description": "Re-check the season opener and refresh the sidebar and widgets.",
         "forUserType": "moderator",
         "location": "subreddit",
-        "endpoint": "/internal/menu/spike"
+        "endpoint": "/internal/menu/update-now"
       }
     ]
   },
   "scheduler": {
     "tasks": {
-      "spike-heartbeat": {
-        "endpoint": "/internal/cron/heartbeat",
+      "update-sidebar": {
+        "endpoint": "/internal/cron/update-sidebar",
         "cron": "*/5 * * * *"
       }
     }

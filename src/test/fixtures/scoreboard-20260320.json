@@ -1,0 +1,154 @@
+{
+  "events": [
+    {
+      "id": "401856497",
+      "date": "2026-03-21T02:31Z",
+      "competitions": [
+        {
+          "status": {
+            "type": {
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "detail": "Final",
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "score": "82",
+              "team": {
+                "id": "41",
+                "shortDisplayName": "UConn"
+              },
+              "curatedRank": {
+                "current": 2
+              }
+            },
+            {
+              "homeAway": "away",
+              "score": "71",
+              "team": {
+                "id": "231",
+                "shortDisplayName": "Furman"
+              },
+              "curatedRank": {
+                "current": 15
+              }
+            }
+          ],
+          "notes": [
+            {
+              "headline": "NCAA Men's Basketball Championship - East Region - 1st Round"
+            }
+          ],
+          "broadcasts": [
+            {
+              "names": ["TBS"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "401856494",
+      "date": "2026-03-20T23:25Z",
+      "competitions": [
+        {
+          "status": {
+            "type": {
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "detail": "Final",
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "score": "79",
+              "team": {
+                "id": "2599",
+                "shortDisplayName": "St John's"
+              },
+              "curatedRank": {
+                "current": 5
+              }
+            },
+            {
+              "homeAway": "away",
+              "score": "53",
+              "team": {
+                "id": "2460",
+                "shortDisplayName": "Northern Iowa"
+              },
+              "curatedRank": {
+                "current": 12
+              }
+            }
+          ],
+          "notes": [
+            {
+              "headline": "NCAA Men's Basketball Championship - East Region - 1st Round"
+            }
+          ],
+          "broadcasts": [
+            {
+              "names": ["CBS"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "401856528",
+      "date": "2026-03-20T20:10Z",
+      "competitions": [
+        {
+          "status": {
+            "type": {
+              "name": "STATUS_FINAL",
+              "state": "post",
+              "detail": "Final",
+              "shortDetail": "Final"
+            }
+          },
+          "competitors": [
+            {
+              "homeAway": "home",
+              "score": "76",
+              "team": {
+                "id": "222",
+                "shortDisplayName": "Villanova"
+              },
+              "curatedRank": {
+                "current": 8
+              }
+            },
+            {
+              "homeAway": "away",
+              "score": "86",
+              "team": {
+                "id": "328",
+                "shortDisplayName": "Utah State"
+              },
+              "curatedRank": {
+                "current": 9
+              }
+            }
+          ],
+          "notes": [
+            {
+              "headline": "NCAA Men's Basketball Championship - West Region - 1st Round"
+            }
+          ],
+          "broadcasts": [
+            {
+              "names": ["TNT"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

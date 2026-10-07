@@ -1,4 +1,0 @@
-praw
-requests
-titlecase
-pytest

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developers.reddit.com/schema/config-file.v1.json",
+  "name": "bigeastbot",
+  "server": {},
+  "permissions": {
+    "reddit": true,
+    "redis": true,
+    "http": {
+      "enable": true,
+      "domains": [
+        "site.api.espn.com"
+      ]
+    }
+  },
+  "menu": {
+    "items": [
+      {
+        "label": "[BigEastBot] Run spike checks",
+        "description": "Test ESPN fetch, config/sidebar write and a sidebar widget.",
+        "forUserType": "moderator",
+        "location": "subreddit",
+        "endpoint": "/internal/menu/spike"
+      }
+    ]
+  },
+  "scheduler": {
+    "tasks": {
+      "spike-heartbeat": {
+        "endpoint": "/internal/cron/heartbeat",
+        "cron": "*/5 * * * *"
+      }
+    }
+  },
+  "dev": {
+    "subreddit": "jives00test"
+  },
+  "scripts": {
+    "dev": "npm run watch"
+  }
+}

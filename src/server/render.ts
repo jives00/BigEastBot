@@ -38,8 +38,10 @@ export function startTime(shortDetail: string): string {
   return m ? `${m[1]}${m[2]?.toLowerCase()}` : 'TBD'
 }
 
+// The "#" is escaped because old Reddit renders "* #4 UConn ..." as a header when the
+// away team is ranked and the line has no tournament prefix.
 function team(side: Side): string {
-  return side.rank ? `#${side.rank} ${side.name}` : side.name
+  return side.rank ? `\\#${side.rank} ${side.name}` : side.name
 }
 
 export function gameLine(g: Game): string {

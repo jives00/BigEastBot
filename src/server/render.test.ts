@@ -43,20 +43,22 @@ const game = (over: Partial<Game>): Game => ({
 test('final: winner bold, both ranks, away-home score, Big East tourney prefix', () => {
   const l = lines('20260312')
   assert.ok(
-    l.includes('* Big East Tournament - Xavier vs **#6 UConn** 68-93\n\n'),
+    l.includes('* Big East Tournament - Xavier vs **\\#6 UConn** 68-93\n\n'),
   )
   assert.ok(
     l.includes('* Big East Tournament - **Georgetown** vs Villanova 78-64\n\n'),
   )
   assert.deepEqual(lines('20260314'), [
-    "* Big East Tournament - #6 UConn vs **#13 St John's** 52-72\n\n",
+    "* Big East Tournament - \\#6 UConn vs **\\#13 St John's** 52-72\n\n",
   ])
 })
 
 test('NCAA tournament prefix and seeds-as-ranks', () => {
   const l = lines('20260320')
-  assert.ok(l.includes('* NCAA - #15 Furman vs **#2 UConn** 71-82\n\n'))
-  assert.ok(l.includes('* NCAA - **#9 Utah State** vs #8 Villanova 86-76\n\n'))
+  assert.ok(l.includes('* NCAA - \\#15 Furman vs **\\#2 UConn** 71-82\n\n'))
+  assert.ok(
+    l.includes('* NCAA - **\\#9 Utah State** vs \\#8 Villanova 86-76\n\n'),
+  )
 })
 
 test('scheduled: start time and network', () => {
@@ -77,8 +79,18 @@ test('live game shows score and clock', () => {
   })
   assert.equal(
     gameLine(g),
-    '* Drexel vs #9 Villanova, 20-25 | 10:00 - 1st Half on FS1\n\n',
+    '* Drexel vs \\#9 Villanova, 20-25 | 10:00 - 1st Half on FS1\n\n',
   )
+})
+
+test('ranked away team at line start is escaped so old Reddit does not render a header', () => {
+  const g = game({
+    shortDetail: '11/6 - 8:00 PM EST',
+    home: {name: 'Michigan', score: 0, rank: 16},
+    away: {name: 'UConn', score: 0, rank: 4},
+    network: 'TNT',
+  })
+  assert.equal(gameLine(g), '* \\#4 UConn vs \\#16 Michigan, 8:00pm on TNT\n\n')
 })
 
 test('postponed and TBD', () => {
